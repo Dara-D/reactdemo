@@ -5,6 +5,7 @@ import { Grid, Row, Col} from 'react-bootstrap/lib';
 import { MovieInfo, Poster } from '../components';
 import { connect } from 'react-redux';
 import { fetchMovieDetail, fetchCastList, fetchTrailerList} from '../actions';
+import RelatedMovies from '../components/relatedMovies';
 
 class MovieDetail extends Component {
 
@@ -51,7 +52,23 @@ class MovieDetail extends Component {
             </Col>
           </Row>
           <Row>
-            <TrailerList data={trailers.slice(0,TRAILER_MAX_NUM)} />
+
+              {/* <TrailerList data={trailers.slice(0,TRAILER_MAX_NUM)} /> */}
+            
+            <Col xs={12} sm={6} md={4}>
+              <TrailerList data={trailers.slice(0,1)} />
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <TrailerList data={trailers.slice(1,2)} />
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <TrailerList data={trailers.slice(2,3)} />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+            <RelatedMovies />
+            </Col>
           </Row>
         </Grid>
       );
